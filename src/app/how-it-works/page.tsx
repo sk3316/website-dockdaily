@@ -73,8 +73,8 @@ export default function HowItWorksPage() {
           habits, so you can grow steadily without overcommitting.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/pricing" className="btn btn-brand">
-            See pricing
+          <Link href="/#download" className="btn btn-brand">
+            Join the beta list
           </Link>
           <Link href="/features" className="btn btn-ghost">
             Explore features <ArrowRight className="h-4 w-4" />

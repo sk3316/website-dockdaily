@@ -75,8 +75,8 @@ export default function FeaturesPage() {
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/pricing" className="btn btn-ghost">
-              Pricing & plans
+            <Link href="/contact" className="btn btn-ghost">
+              Talk to the team
             </Link>
             <Link href="/how-it-works" className="btn btn-brand">
               How it works <ArrowRight className="h-4 w-4" />
