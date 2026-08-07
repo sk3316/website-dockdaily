@@ -87,20 +87,20 @@ export function ReviewSection() {
         description="Have suggestions, feedback, or a quick review? Submit below to send it directly to our inbox."
       />
 
-      <div className="mx-auto mt-10 max-w-2xl overflow-hidden rounded-3xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-lg">
+      <div className="mx-auto mt-8 sm:mt-10 max-w-2xl overflow-hidden rounded-3xl border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-lg">
         {/* Subdued Header Banner */}
-        <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface-muted)] px-6 py-3.5 text-xs text-[var(--color-muted)] sm:px-8">
+        <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface-muted)] px-5 py-3 text-xs text-[var(--color-muted)] sm:px-8 sm:py-3.5">
           <div className="flex items-center gap-2 font-medium">
-            <Mail className="h-4 w-4 text-[var(--color-brand-500)]" />
+            <Mail className="h-4 w-4 text-[var(--color-brand-500)] shrink-0" />
             <span>Direct Feedback Channel</span>
           </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[11px] font-semibold text-[var(--color-foreground)] shadow-xs">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-[11px] font-semibold text-[var(--color-foreground)] shadow-xs shrink-0">
+            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <span>Encrypted & Private</span>
           </div>
         </div>
 
-        <div className="p-6 sm:p-10">
+        <div className="p-5 sm:p-8 lg:p-10">
           {status === "success" ? (
             <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-500">
@@ -130,7 +130,7 @@ export function ReviewSection() {
                 <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
                   Your Rating
                 </label>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center flex-wrap gap-1.5 sm:gap-2">
                   {[1, 2, 3, 4, 5].map((star) => {
                     const active = (hoverRating ?? rating) >= star;
                     return (
@@ -144,7 +144,7 @@ export function ReviewSection() {
                         aria-label={`Rate ${star} out of 5 stars`}
                       >
                         <Star
-                          className={`h-8 w-8 transition-colors ${
+                          className={`h-7 w-7 sm:h-8 sm:w-8 transition-colors ${
                             active
                               ? "fill-amber-400 text-amber-400"
                               : "text-[var(--color-border-strong)]"
@@ -153,8 +153,8 @@ export function ReviewSection() {
                       </button>
                     );
                   })}
-                  <span className="ml-3 text-sm font-semibold text-[var(--color-foreground)]">
-                    {hoverRating ?? rating} / 5 Stars
+                  <span className="ml-2 text-sm font-semibold text-[var(--color-foreground)]">
+                    {hoverRating ?? rating} / 5
                   </span>
                 </div>
               </div>

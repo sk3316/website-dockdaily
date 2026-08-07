@@ -68,8 +68,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 gradient-soft" aria-hidden />
         <div className="absolute inset-0 grid-bg" aria-hidden />
-        <div className="container-page relative grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-2">
-          <div className="flex flex-col items-start gap-6">
+        <div className="container-page relative grid items-center gap-8 py-16 sm:gap-12 sm:py-24 lg:grid-cols-2 lg:py-28">
+          <div className="flex flex-col items-start gap-5 sm:gap-6">
             <span className="pill">
               <span
                 className="inline-block h-1.5 w-1.5 rounded-full"
@@ -77,7 +77,7 @@ export default function HomePage() {
               />
               Now in private beta
             </span>
-            <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl">
+            <h1 className="heading-display text-3xl sm:text-5xl lg:text-6xl">
               Master your day,{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -89,30 +89,30 @@ export default function HomePage() {
                 one calm habit at a time.
               </span>
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
+            <p className="max-w-xl text-base leading-relaxed text-[var(--color-muted)] sm:text-lg">
               DockDaily is a calm, focused personal growth app. Plan your day,
               keep kind streaks, and get gentle AI nudges — all synced privately
               across your devices.
             </p>
 
             <div className="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
-              <Link href="#download" className="btn btn-primary">
+              <Link href="#download" className="btn btn-primary w-full sm:w-auto px-5 py-3">
                 Join the Android closed beta
               </Link>
             </div>
 
-            <div className="mt-2 w-full max-w-xl">
+            <div className="mt-1 w-full max-w-xl">
               <p className="mb-2 text-xs uppercase tracking-wider text-[var(--color-subtle)]">
                 Or join the closed Android beta list
               </p>
               <WaitlistForm source="home-hero" />
             </div>
 
-            <ul className="mt-2 grid gap-1.5 text-sm text-[var(--color-muted)] sm:grid-cols-1">
+            <ul className="mt-1 grid gap-1.5 text-sm text-[var(--color-muted)]">
               {trustPoints.map((point) => (
                 <li key={point} className="flex items-center gap-2">
                   <CircleCheck
-                    className="h-4 w-4"
+                    className="h-4 w-4 shrink-0"
                     style={{ color: "var(--color-success)" }}
                   />
                   {point}
@@ -121,7 +121,7 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden sm:block">
             <div
               className="absolute -inset-6 rounded-[2.5rem] blur-2xl"
               aria-hidden
@@ -177,28 +177,28 @@ export default function HomePage() {
       {/* ------------------------------------------------------------------
           Feature highlights
       ------------------------------------------------------------------ */}
-      <section className="container-page py-20">
+      <section className="container-page py-14 sm:py-20">
         <SectionHeading
           eyebrow="Why DockDaily"
           title="A productivity app that doesn't yell at you."
           description="Most tools are loud. DockDaily is calm, opinionated, and designed to fade into the background so your day can take center stage."
         />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">
           {featureHighlights.map((feature) => (
             <article
               key={feature.title}
-              className="surface-card p-6 transition-shadow hover:shadow-[var(--shadow-elevated)]"
+              className="surface-card p-5 sm:p-6 transition-shadow hover:shadow-[var(--shadow-elevated)]"
             >
               <div
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-xl sm:h-10 sm:w-10"
                 style={{
                   background: "var(--color-brand-50)",
                   color: "var(--color-brand-600)",
                 }}
               >
-                <feature.icon className="h-5 w-5" />
+                <feature.icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold tracking-tight">
+              <h3 className="mt-3 text-base font-semibold tracking-tight sm:mt-4 sm:text-lg">
                 {feature.title}
               </h3>
               <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-muted)]">
