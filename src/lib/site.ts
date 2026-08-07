@@ -23,12 +23,14 @@ export const siteConfig = {
   nav: [
     { label: "Features", href: "/features" },
     { label: "How it works", href: "/how-it-works" },
+    { label: "Reviews", href: "/#reviews" },
     { label: "About", href: "/about" },
   ],
   footer: {
     product: [
       { label: "Features", href: "/features" },
       { label: "How it works", href: "/how-it-works" },
+      { label: "Reviews", href: "/#reviews" },
       { label: "Download", href: "/#download" },
     ],
     company: [

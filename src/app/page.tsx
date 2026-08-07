@@ -11,6 +11,7 @@ import {
 import { SectionHeading } from "@/components/SectionHeading";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { ReviewSection } from "@/components/ReviewSection";
 
 const featureHighlights = [
   {
@@ -351,6 +352,11 @@ export default function HomePage() {
           </ul>
         </div>
       </section>
+
+      {/* ------------------------------------------------------------------
+          Community Reviews / Testimonials
+      ------------------------------------------------------------------ */}
+      <ReviewSection />
 
       {/* ------------------------------------------------------------------
           Final CTA / download
