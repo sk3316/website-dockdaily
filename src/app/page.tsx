@@ -12,6 +12,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { PhoneMockup } from "@/components/PhoneMockup";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { ReviewSection } from "@/components/ReviewSection";
+import { PlatformAvailability } from "@/components/PlatformAvailability";
 
 const featureHighlights = [
   {
@@ -354,9 +355,34 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------------------------
-          Community Reviews / Testimonials
+          Platform Availability (Android Live, iOS Coming Soon)
+      ------------------------------------------------------------------ */}
+      <PlatformAvailability />
+
+      {/* ------------------------------------------------------------------
+          Community Feedback
       ------------------------------------------------------------------ */}
       <ReviewSection />
+
+      {/* ------------------------------------------------------------------
+          Support Developer Callout
+      ------------------------------------------------------------------ */}
+      <section className="container-page py-12">
+        <div className="surface-card flex flex-col items-center justify-between gap-6 p-8 text-center sm:flex-row sm:text-left rounded-3xl border border-[var(--color-border-strong)]">
+          <div>
+            <span className="pill text-xs font-semibold">☕ Support Independent Dev</span>
+            <h3 className="text-xl font-bold mt-2 text-[var(--color-foreground)]">
+              Enjoying DockDaily? Buy Shitanshu a coffee!
+            </h3>
+            <p className="text-xs text-[var(--color-muted)] mt-1 max-w-lg">
+              Support ad-free, local-first software. Direct UPI contributions fuel ongoing feature development and server costs.
+            </p>
+          </div>
+          <Link href="/support" className="btn btn-brand rounded-full px-6 py-3 text-sm font-medium shrink-0">
+            Buy a Coffee ☕
+          </Link>
+        </div>
+      </section>
 
       {/* ------------------------------------------------------------------
           Final CTA / download

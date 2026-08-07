@@ -15,6 +15,9 @@ export const siteConfig = {
   developer: "Shitanshu",
   email: "contacttoshitu26@gmail.com",
   supportEmail: "contacttoshitu26@gmail.com",
+  // UPI Fundraiser details
+  upiId: "shituleo26@okaxis",
+  upiName: "Shitanshu",
   social: {
     twitter: "https://twitter.com/dockdaily",
     github: "https://github.com/dockdaily",
@@ -23,17 +26,19 @@ export const siteConfig = {
   nav: [
     { label: "Features", href: "/features" },
     { label: "How it works", href: "/how-it-works" },
-    { label: "Reviews", href: "/#reviews" },
+    { label: "Feedback", href: "/#reviews" },
+    { label: "Support Developer", href: "/support" },
     { label: "About", href: "/about" },
   ],
   footer: {
     product: [
       { label: "Features", href: "/features" },
       { label: "How it works", href: "/how-it-works" },
-      { label: "Reviews", href: "/#reviews" },
+      { label: "Feedback", href: "/#reviews" },
       { label: "Download", href: "/#download" },
     ],
     company: [
+      { label: "Support Developer", href: "/support" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy", href: "/privacy" },
