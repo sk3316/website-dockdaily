@@ -153,17 +153,23 @@ export function SupportDeveloper() {
             {/* Mobile direct deep link button */}
             <a
               href={upiPayUrl}
-              className="btn btn-brand h-12 flex-1 justify-center rounded-full text-sm font-medium shadow-md"
+              className="btn btn-brand min-h-[3rem] h-auto py-3 px-5 flex-1 items-center justify-center rounded-2xl sm:rounded-full text-xs sm:text-sm font-medium shadow-md text-center leading-snug"
             >
-              <Smartphone className="h-4 w-4 mr-1.5" />
-              Pay ₹{activeAmount || 50} via UPI App (GPay / PhonePe / Paytm)
+              <Smartphone className="h-4 w-4 mr-1.5 shrink-0" />
+              <span>
+                Pay ₹{activeAmount || 50} via UPI{" "}
+                <span className="hidden xs:inline sm:inline">App</span>{" "}
+                <span className="text-[11px] opacity-90 sm:text-xs">
+                  (GPay / PhonePe / Paytm)
+                </span>
+              </span>
             </a>
 
             <button
               onClick={() => setShowQr(!showQr)}
-              className="btn btn-ghost h-12 rounded-full px-5 text-sm font-medium border border-[var(--color-border-strong)] bg-[var(--color-surface)]"
+              className="btn btn-ghost min-h-[3rem] h-auto py-3 rounded-2xl sm:rounded-full px-5 text-xs sm:text-sm font-medium border border-[var(--color-border-strong)] bg-[var(--color-surface)] shrink-0 justify-center"
             >
-              <QrCode className="h-4 w-4 mr-1.5" />
+              <QrCode className="h-4 w-4 mr-1.5 shrink-0" />
               {showQr ? "Hide QR Code" : "Show QR Code"}
             </button>
           </div>
