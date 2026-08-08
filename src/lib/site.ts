@@ -16,7 +16,7 @@ export const siteConfig = {
   email: "contacttoshitu26@gmail.com",
   supportEmail: "contacttoshitu26@gmail.com",
   // UPI Fundraiser details
-  upiId: "shituleo26@okaxis",
+  upiId: "shituleo26@okicici",
   upiName: "Shitanshu",
   social: {
     twitter: "https://twitter.com/dockdaily",

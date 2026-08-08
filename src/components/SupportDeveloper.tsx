@@ -1,13 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { Coffee, Copy, Check, Heart, Sparkles, QrCode, Smartphone } from "lucide-react";
+import { Coffee, Copy, Check, Heart, Sparkles, QrCode } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
 const PRESET_TIERS = [
-  { amount: 50, label: "Buy a Coffee", emoji: "☕", desc: "A warm cup of coffee to fuel late night coding." },
-  { amount: 200, label: "Fuel a Feature", emoji: "🍕", desc: "Helps cover small tools & API services." },
-  { amount: 500, label: "Server Sponsor", emoji: "🚀", desc: "Covers monthly database & server hosting." },
+  {
+    amount: 50,
+    label: "Buy a Coffee",
+    emoji: "☕",
+    desc: "A warm cup of coffee to fuel late night coding.",
+  },
+  {
+    amount: 200,
+    label: "Fuel a Feature",
+    emoji: "🍕",
+    desc: "Helps cover small tools & API services.",
+  },
+  {
+    amount: 500,
+    label: "Server Sponsor",
+    emoji: "🚀",
+    desc: "Covers monthly database & server hosting.",
+  },
 ];
 
 export function SupportDeveloper() {
@@ -16,16 +31,18 @@ export function SupportDeveloper() {
   const [copied, setCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
 
-  const activeAmount = customAmount ? Number(customAmount) || 0 : selectedAmount;
+  const activeAmount = customAmount
+    ? Number(customAmount) || 0
+    : selectedAmount;
   const upiId = siteConfig.upiId;
   const developerName = siteConfig.developer;
 
-  const upiPayUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(
+  const qrPayload = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(
     developerName,
-  )}&am=${activeAmount}&cu=INR&tn=${encodeURIComponent("Support DockDaily Developer")}`;
+  )}&cu=INR`;
 
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=${encodeURIComponent(
-    upiPayUrl,
+    qrPayload,
   )}`;
 
   function handleCopyUpi() {
@@ -40,7 +57,8 @@ export function SupportDeveloper() {
       <div
         className="p-6 text-center sm:p-10"
         style={{
-          background: "linear-gradient(135deg, #1c2540 0%, #162c66 60%, #2a55d4 100%)",
+          background:
+            "linear-gradient(135deg, #1c2540 0%, #162c66 60%, #2a55d4 100%)",
           color: "#fff",
         }}
       >
@@ -52,7 +70,9 @@ export function SupportDeveloper() {
           Buy {developerName} a Coffee ☕
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/80">
-          DockDaily is built independently with care, without VC funding or intrusive ads. If DockDaily helps your routine, consider supporting ongoing development!
+          DockDaily is built independently with care, without VC funding or
+          intrusive ads. If DockDaily helps your routine, consider supporting
+          ongoing development!
         </p>
       </div>
 
@@ -64,7 +84,8 @@ export function SupportDeveloper() {
           </label>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
             {PRESET_TIERS.map((tier) => {
-              const isSelected = !customAmount && selectedAmount === tier.amount;
+              const isSelected =
+                !customAmount && selectedAmount === tier.amount;
               return (
                 <button
                   key={tier.amount}
@@ -100,7 +121,9 @@ export function SupportDeveloper() {
 
           {/* Custom Amount Input */}
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="text-xs font-medium text-[var(--color-muted)] shrink-0">Custom Amount:</span>
+            <span className="text-xs font-medium text-[var(--color-muted)] shrink-0">
+              Custom Amount:
+            </span>
             <div className="relative min-w-[160px] flex-1 max-w-xs">
               <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-semibold text-[var(--color-subtle)]">
                 ₹
@@ -129,7 +152,9 @@ export function SupportDeveloper() {
                 <span className="truncate text-sm font-mono font-bold text-[var(--color-foreground)] sm:text-lg">
                   {upiId}
                 </span>
-                <span className="pill text-[11px] shrink-0">{developerName}</span>
+                <span className="pill text-[11px] shrink-0">
+                  {developerName}
+                </span>
               </div>
             </div>
 
@@ -139,7 +164,8 @@ export function SupportDeveloper() {
             >
               {copied ? (
                 <>
-                  <Check className="h-4 w-4 text-emerald-500 shrink-0" /> Copied!
+                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />{" "}
+                  Copied!
                 </>
               ) : (
                 <>
@@ -149,28 +175,14 @@ export function SupportDeveloper() {
             </button>
           </div>
 
-          {/* Payment CTA Options */}
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={upiPayUrl}
-              className="btn btn-brand flex items-center justify-center gap-2 rounded-2xl sm:rounded-full px-5 py-3 text-sm font-medium shadow-md flex-1 min-h-[3rem] h-auto leading-tight"
-            >
-              <Smartphone className="h-4 w-4 shrink-0" />
-              <span className="text-center leading-snug">
-                Pay ₹{activeAmount || 50} via UPI
-                <span className="block text-[11px] opacity-80 sm:hidden">GPay / PhonePe / Paytm</span>
-                <span className="hidden sm:inline text-xs opacity-80"> (GPay / PhonePe / Paytm)</span>
-              </span>
-            </a>
-
-            <button
-              onClick={() => setShowQr(!showQr)}
-              className="btn btn-ghost flex items-center justify-center gap-2 rounded-2xl sm:rounded-full px-5 py-3 text-sm font-medium border border-[var(--color-border-strong)] bg-[var(--color-surface)] shrink-0 min-h-[3rem] h-auto"
-            >
-              <QrCode className="h-4 w-4 shrink-0" />
-              {showQr ? "Hide QR" : "Show QR Code"}
-            </button>
-          </div>
+          {/* QR Toggle (placeholder UPI payment) */}
+          <button
+            onClick={() => setShowQr(!showQr)}
+            className="btn btn-ghost flex w-full items-center justify-center gap-2 rounded-2xl sm:rounded-full px-5 py-3 text-sm font-medium border border-[var(--color-border-strong)] bg-[var(--color-surface)] min-h-[3rem] h-auto"
+          >
+            <QrCode className="h-4 w-4 shrink-0" />
+            {showQr ? "Hide QR Code" : "Show QR Code"}
+          </button>
 
           {/* QR Code Container */}
           {showQr && (
@@ -181,10 +193,11 @@ export function SupportDeveloper() {
                 className="h-44 w-44 sm:h-48 sm:w-48 rounded-xl border border-[var(--color-border)] bg-white p-2 shadow-sm"
               />
               <p className="mt-3 text-xs font-medium text-[var(--color-foreground)]">
-                Scan with GPay, PhonePe, Paytm, or BHIM
+                Scan with any UPI app to pay {developerName} directly
               </p>
               <p className="mt-1 text-[11px] text-[var(--color-subtle)]">
-                Paying ₹{activeAmount || 50} to {upiId}
+                Suggested: ₹{activeAmount || 50} — open your UPI app and enter
+                any amount
               </p>
             </div>
           )}
@@ -198,7 +211,8 @@ export function SupportDeveloper() {
               Thank you for supporting DockDaily!
             </p>
             <p className="mt-0.5 leading-relaxed">
-              Every contribution directly helps maintain servers, cover app store fees, and keep DockDaily ad-free and privacy-first.
+              Every contribution directly helps maintain servers, cover app
+              store fees, and keep DockDaily ad-free and privacy-first.
             </p>
           </div>
         </div>
