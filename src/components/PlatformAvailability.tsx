@@ -1,11 +1,20 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Check, Loader2, Smartphone, Apple, Bell, Sparkles } from "lucide-react";
+import {
+  Check,
+  Loader2,
+  Smartphone,
+  Apple,
+  Bell,
+  Sparkles,
+} from "lucide-react";
 
 export function PlatformAvailability() {
   const [iosEmail, setIosEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const [message, setMessage] = useState<string | null>(null);
 
   async function handleIosNotify(e: FormEvent<HTMLFormElement>) {
@@ -34,7 +43,9 @@ export function PlatformAvailability() {
       }
 
       setStatus("success");
-      setMessage("You're on the iOS notify list! We'll email you as soon as TestFlight opens.");
+      setMessage(
+        "You're on the iOS notify list! We'll email you as soon as TestFlight opens.",
+      );
       setIosEmail("");
     } catch {
       setStatus("error");
@@ -43,7 +54,10 @@ export function PlatformAvailability() {
   }
 
   return (
-    <section id="availability" className="container-page py-12 sm:py-16 scroll-mt-24">
+    <section
+      id="availability"
+      className="container-page py-12 sm:py-16 scroll-mt-24"
+    >
       <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-8 lg:p-12 shadow-sm">
         <div className="text-center max-w-2xl mx-auto">
           <span className="pill">
@@ -54,7 +68,8 @@ export function PlatformAvailability() {
             Where to get DockDaily
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)] sm:text-base">
-            We are currently focused on delivering the best Android experience first, with an iOS version in active development.
+            We are currently focused on delivering the best Android experience
+            first, with an iOS version in active development.
           </p>
         </div>
 
@@ -76,7 +91,8 @@ export function PlatformAvailability() {
                 Android (Google Play Store)
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
-                Currently available via Closed Beta testing. Join our beta list to receive an instant Google Play testing download link.
+                Currently available via Closed Beta testing. Join our beta list
+                to receive an instant Google Play testing download link.
               </p>
 
               <ul className="mt-4 space-y-2 text-xs text-[var(--color-muted)] sm:mt-5">
@@ -93,7 +109,7 @@ export function PlatformAvailability() {
 
             <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
               <a
-                href="#download"
+                href="/download"
                 className="btn btn-brand w-full justify-center rounded-full py-3 text-sm font-medium"
               >
                 Join Android Beta List
@@ -117,7 +133,8 @@ export function PlatformAvailability() {
                 iOS (Apple App Store)
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
-                We are building the native iOS experience. Enter your email below to get notified when TestFlight beta opens.
+                We are building the native iOS experience. Enter your email
+                below to get notified when TestFlight beta opens.
               </p>
             </div>
 
@@ -128,7 +145,10 @@ export function PlatformAvailability() {
                   <span>{message}</span>
                 </div>
               ) : (
-                <form onSubmit={handleIosNotify} className="flex flex-col gap-2">
+                <form
+                  onSubmit={handleIosNotify}
+                  className="flex flex-col gap-2"
+                >
                   <div className="flex gap-2">
                     <input
                       type="email"

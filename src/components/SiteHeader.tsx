@@ -61,7 +61,7 @@ export function SiteHeader() {
           <Link href="/contact" className="btn btn-ghost btn-sm">
             Contact
           </Link>
-          <Link href="/#download" className="btn btn-brand btn-sm">
+          <Link href="/download" className="btn btn-brand btn-sm">
             Get the app
           </Link>
         </div>
@@ -100,7 +100,7 @@ export function SiteHeader() {
                 Contact
               </Link>
               <Link
-                href="/#download"
+                href="/download"
                 onClick={() => setOpen(false)}
                 className="btn btn-brand mt-1 w-full"
               >

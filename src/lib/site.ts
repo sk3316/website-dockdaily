@@ -26,7 +26,7 @@ export const siteConfig = {
   nav: [
     { label: "Features", href: "/features" },
     { label: "How it works", href: "/how-it-works" },
-    { label: "Feedback", href: "/#reviews" },
+    { label: "Feedback", href: "/feedback" },
     { label: "Support Developer", href: "/support" },
     { label: "About", href: "/about" },
   ],
@@ -34,8 +34,8 @@ export const siteConfig = {
     product: [
       { label: "Features", href: "/features" },
       { label: "How it works", href: "/how-it-works" },
-      { label: "Feedback", href: "/#reviews" },
-      { label: "Download", href: "/#download" },
+      { label: "Feedback", href: "/feedback" },
+      { label: "Download", href: "/download" },
     ],
     company: [
       { label: "Support Developer", href: "/support" },

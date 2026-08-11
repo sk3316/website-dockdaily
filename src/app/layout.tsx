@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -97,6 +98,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[var(--color-background)] text-[var(--color-foreground)]">
+        <ScrollProgress />
         <SiteHeader />
         <main id="content" className="flex-1">
           {children}

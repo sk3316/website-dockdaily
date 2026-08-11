@@ -265,6 +265,130 @@
     background: var(--color-surface);
     border: 1px solid rgba(255, 255, 255, 0.06);
   }
+
+  /* --------------------------------------------------------------------------
+     Motion.so-inspired additions
+  -------------------------------------------------------------------------- */
+
+  /* Massive display numbers used in numbered step sections. */
+  .heading-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--color-foreground);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Top-of-page scroll progress indicator. */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 50;
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-500),
+      var(--color-accent-500)
+    );
+    transform-origin: 0 50%;
+  }
+
+  /* Soft dark surface used in motion.so-style story sections. */
+  .surface-dark {
+    background: var(--motion-ink, #0d0f14);
+    color: #f0efec;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .surface-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        60% 60% at 15% 0%,
+        rgba(217, 204, 172, 0.12) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        50% 50% at 100% 100%,
+        rgba(58, 110, 240, 0.08) 0%,
+        transparent 70%
+      );
+  }
+
+  .surface-dark > * {
+    position: relative;
+  }
+
+  /* Marquee used for social-proof word strip. */
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    flex-shrink: 0;
+    padding-right: 3rem;
+    animation: marquee-scroll 40s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Subtle text shimmer used on hero pill / brand marks. */
+  .text-kinetic {
+    background: linear-gradient(
+      90deg,
+      var(--color-foreground) 0%,
+      var(--color-foreground) 40%,
+      var(--color-brand-500) 50%,
+      var(--color-foreground) 60%,
+      var(--color-foreground) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shimmer 8s linear infinite;
+  }
+
+  @keyframes text-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .text-kinetic {
+      animation: none;
+    }
+  }
 }
 
 /* Smoother scrolling for anchor jumps */
