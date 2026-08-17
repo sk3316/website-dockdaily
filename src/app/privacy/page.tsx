@@ -24,7 +24,7 @@ const sections: Section[] = [
       "• Your Google account basics (name, email, profile photo) for OAuth sign-in.",
       "• Tasks, habits, completion state, dates, streaks, and logs.",
       "• App preferences like theme and notification settings, stored locally on your device.",
-      "• Habit and task titles sent to the Groq LLaMA 3 API when you explicitly request an AI suggestion.",
+      "• Habit and task titles sent to the OpenAI gpt-oss models (gpt-oss-120B and gpt-oss-20B) via the Groq API when you explicitly request an AI suggestion.",
       "",
       "We do not collect: location data, contact lists, browsing history, biometric data, or anything unrelated to your tasks and habits.",
     ],
@@ -41,7 +41,7 @@ const sections: Section[] = [
     index: "04",
     title: "AI features",
     body: [
-      "When you use AI habit suggestions or chat, your habit and task titles are sent to the Groq LLaMA 3 API through a secure server-side proxy. Your API key is never exposed in the app. No personally identifiable information beyond habit/task titles is sent, and AI features are entirely optional.",
+      "When you use AI habit suggestions or chat, your habit and task titles are sent to the OpenAI gpt-oss models (gpt-oss-120B and gpt-oss-20B) via the Groq API through a secure server-side proxy. Your API key is never exposed in the app. No personally identifiable information beyond habit/task titles is sent, and AI features are entirely optional.",
     ],
   },
   {
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
             </Reveal>
             <Reveal delay={0.55}>
               <p className="text-xs font-medium uppercase tracking-wider text-[var(--color-subtle)]">
-                Last updated · July 2026
+                Last updated · August 2026
               </p>
             </Reveal>
           </div>
